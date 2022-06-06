@@ -16,11 +16,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-      - name: Install python3
-        uses: actions/setup-python@master
+      - name: Setup Python
+        uses: actions/setup-python@v3.1.0
+        with:
+          python-version: 3.9
       - name: Install packages
         run: |
           pip3 install requests
+          pip3 install ddddocr
       - name: Clock In
         env:
           ACCOUNT: ${{ secrets.ACCOUNT }}
